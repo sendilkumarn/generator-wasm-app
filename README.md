@@ -15,6 +15,7 @@ wasm-app
 ```
 
 Languages supported - Rust 
+
 Bundlers supported - Webpack / Parcel
 
 ## License
