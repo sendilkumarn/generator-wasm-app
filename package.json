@@ -1,0 +1,92 @@
+{
+  "name": "generator-wasm-app",
+  "version": "0.0.0",
+  "description": "A WebAssembly toolkit",
+  "repository": "sendilkumarn/generator-wasm-app",
+  "license": "Apache 2.0",
+  "homepage": "https://github.com/sendilkumarn/generator-wasm-app",
+  "bugs": "https://github.com/sendilkumarn/generator-wasm-app/issues",
+  "author": {
+    "name": "Sendil Kumar",
+    "email": "sendilkumarn@live.com",
+    "url": "https://sendilkumarn.js.org"
+  },
+  "files": [
+    "cli",
+    "generators"
+  ],
+  "bin": {
+    "wasm-app": "./cli/cli.js"
+  },
+  "main": "cli/cli.js",
+  "keywords": [
+    "rust",
+    "webpack",
+    "parcel",
+    "webassembly",
+    "wasm",
+    "javascript",
+    "yeoman-generator"
+  ],
+  "devDependencies": {
+    "yeoman-test": "^2.0.0",
+    "yeoman-assert": "^3.1.0",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.9.0",
+    "prettier": "^1.15.2",
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-config-xo": "^0.25.0",
+    "jest": "^23.5.0"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "commander": "^2.18.0",
+    "semver": "^5.5.1",
+    "yeoman-generator": "3.0.0"
+  },
+  "engines": {
+    "npm": ">= 8.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "xo",
+      "prettier"
+    ],
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "printWidth": 90
+        }
+      ]
+    },
+    "plugins": [
+      "prettier"
+    ]
+  },
+  "scripts": {
+    "pretest": "eslint .",
+    "test": "jest"
+  }
+}

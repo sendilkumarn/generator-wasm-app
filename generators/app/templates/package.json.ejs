@@ -1,0 +1,28 @@
+{
+    "name": "<%= props.appName %>",
+    "description": "<%= props.appDesc %>",
+    <% if (props.bundler !== 'None') { %>
+    "scripts": {
+      <% if(props.bundler === 'Webpack') { %>
+      "start": "webpack-dev-server -d",
+      "build": "webpack"
+      <% } else if(props.bundler === 'Parcel') { %>
+      "start": "parcel index.html",
+      "build": "parcel build index.html"
+      <% } %>
+    },
+    "devDependencies": {
+      <% if(props.bundler === 'Webpack') { %>
+      "@wasm-tool/wasm-pack-plugin": "0.0.6",
+      "html-webpack-plugin": "^3.2.0",
+      "webpack": "^4.19.0",
+      "webpack-cli": "^3.1.0",
+      "webpack-dev-server": "^3.1.8"
+      <% } else if(props.bundler === 'Parcel') { %>
+      "parcel-bundler": "^1.10.3",
+      "parcel-plugin-wasm.rs": "^1.2.6"
+      <% } %>
+    }
+    <% } %>
+  }
+  

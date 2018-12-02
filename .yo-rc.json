@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Sendil Kumar",
+      "authorEmail": "sendilkumarn@live.com",
+      "authorUrl": "https://sendilkumarn.js.org"
+    }
+  }
+}

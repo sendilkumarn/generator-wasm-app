@@ -1,0 +1,14 @@
+# <%= props.appName %>
+
+> **Kickstart your <%= props.lang %> and WebAssembly project!**
+
+## <%= props.appDesc %>
+
+<% if(props.bundler !== 'None') { %>
+## 🔋 Batteries Included
+
+* `npm run start` -- Serve the project locally for development at
+  `http://localhost:<% if(props.bundler === 'Webpack') { %>8080<% } else if (props.bundler === 'Parcel') { %>1234<% } %>`.
+
+* `npm run build` -- Bundle the project (in production mode).
+<% } %>
