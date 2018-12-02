@@ -1,6 +1,4 @@
 # wasm-app [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
-> 
-> # ⚠️ Currently under active development 
 
 ## Installation
 
@@ -15,6 +13,9 @@ Then generate your new project, by answering the questions.
 ```bash
 wasm-app
 ```
+
+Languages supported - Rust 
+Bundlers supported - Webpack / Parcel
 
 ## License
 
