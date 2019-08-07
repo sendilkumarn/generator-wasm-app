@@ -1,6 +1,6 @@
 {
   "name": "generator-wasm-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A WebAssembly toolkit",
   "repository": "sendilkumarn/generator-wasm-app",
   "license": "Apache 2.0",
