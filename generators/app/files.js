@@ -16,7 +16,6 @@ const getAllRequiredFilesWithCondition = async () => {
 
     await directories.forEach(dir => {
         filesToCopy.push(...getAllFiles(`${__dirname}/templates/${dir}`));
-        console.log(filesToCopy)
     });
 
     return filesToCopy;
@@ -30,7 +29,6 @@ const getAllFiles = (dir, fileList = []) => {
         if (stat.isDirectory()) {
             getAllFiles(`${dir}/${file}`, fileList);
         } else {
-            console.log(dir);
             const rDir = dir.replace(`${__dirname}/templates/`, '');
             fileList.push({
                 name: file,
@@ -59,7 +57,7 @@ const writeFiles = async generator => {
             const fromSrc = getFileLocation(file.name, file.src);
             const fileNameWithoutEjs = file.name.replace('.ejs', '');
             const toDest = getFileLocation(fileNameWithoutEjs, file.dest);
-            console.log(file.name)
+
             generator.fs.copyTpl(
                 generator.templatePath(fromSrc),
                 generator.destinationPath(toDest),
