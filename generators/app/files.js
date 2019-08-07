@@ -15,17 +15,32 @@ const getAllRequiredFilesWithCondition = async () => {
     ];
 
     await directories.forEach(dir => {
-        let files = fs.readdirSync(`${__dirname}/templates/${dir}`);
-        for (let file of files) {
-            filesToCopy.push({
-                name: file,
-                src: dir,
-                dest: dir
-            });
-        }
+        filesToCopy.push(...getAllFiles(`${__dirname}/templates/${dir}`));
+        console.log(filesToCopy)
     });
 
     return filesToCopy;
+};
+
+const getAllFiles = (dir, fileList = []) => {
+    const files = fs.readdirSync(dir);
+    for (let file of files) {
+        const stat = fs.statSync(`${dir}/${file}`);
+
+        if (stat.isDirectory()) {
+            getAllFiles(`${dir}/${file}`, fileList);
+        } else {
+            console.log(dir);
+            const rDir = dir.replace(`${__dirname}/templates/`, '');
+            fileList.push({
+                name: file,
+                src: rDir,
+                dest: rDir
+            });
+        }
+    }
+
+    return fileList;
 };
 
 const getFileLocation = (name, dir) => {
@@ -33,6 +48,7 @@ const getFileLocation = (name, dir) => {
     if (dir) {
         fileLoc = `${dir}/${fileLoc}`;
     }
+
     return fileLoc;
 };
 
@@ -41,10 +57,9 @@ const writeFiles = async generator => {
     for (let file of files) {
         if (!file.condition || file.condition(generator)) {
             const fromSrc = getFileLocation(file.name, file.src);
-
             const fileNameWithoutEjs = file.name.replace('.ejs', '');
             const toDest = getFileLocation(fileNameWithoutEjs, file.dest);
-
+            console.log(file.name)
             generator.fs.copyTpl(
                 generator.templatePath(fromSrc),
                 generator.destinationPath(toDest),

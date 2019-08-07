@@ -14,14 +14,14 @@
     },
     "devDependencies": {
       <% if(props.bundler === 'Webpack') { %>
-      "@wasm-tool/wasm-pack-plugin": "0.2.3",
-      "html-webpack-plugin": "^3.2.0",
-      "webpack": "^4.29.5",
-      "webpack-cli": "^3.2.3",
-      "webpack-dev-server": "^3.1.14"
+      "@wasm-tool/wasm-pack-plugin": "0.4.2",
+      "html-webpack-plugin": "3.2.0",
+      "webpack": "4.33.0",
+      "webpack-cli": "3.3.3",
+      "webpack-dev-server": "3.7.1"
       <% } else if(props.bundler === 'Parcel') { %>
-      "parcel-bundler": "^1.11.0",
-      "parcel-plugin-wasm.rs": "^1.2.8"
+      "parcel-bundler": "1.12.3",
+      "parcel-plugin-wasm.rs": "^1.2.11"
       <% } %>
     }
     <% } %>
