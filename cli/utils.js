@@ -22,6 +22,7 @@ const error = (msg, trace) => {
     if (trace) {
         console.log(trace);
     }
+
     process.exit(1);
 };
 
